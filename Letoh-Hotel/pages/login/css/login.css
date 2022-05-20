@@ -129,7 +129,12 @@ button:focus {
 }
 
 .media {
-    
+    width: 100%;
+    margin: 1% 20%;
+}
+
+.media i {
+    padding-left: 20px;
 }
 
     
