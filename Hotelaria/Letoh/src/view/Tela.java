@@ -1,9 +1,12 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,6 +14,7 @@ import java.util.Currency;
 import java.util.Locale;
 
 import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -28,11 +32,13 @@ public class Tela extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel painel;
-	private JLabel titulo, quarto, nomeCompleto, telefone, dataEntrada, dataSaida, vPerNoite; 
+	private JLabel titulo,linha, quarto, nomeCompleto, telefone, dataEntrada, dataSaida, vPerNoite; 
 	private JTextField tfNomeCompleto, tfTelefone, tfDataEntrada, tfDataSaida, tfVPerNoite;
 	private JTextArea listaQuartos;
 	private JComboBox<String> quartos, filtrar; 
 	private JButton adicionar, alterar, excluir;
+	
+	private Shape shape;
 	
 	
 	
@@ -45,7 +51,7 @@ public class Tela extends JFrame implements ActionListener {
 		setTitle("Letoh");
 		setBounds(650, 200, 850, 625);
 		painel = new JPanel();
-		painel.setBackground(new Color(197,197,197));
+		painel.setBackground(new Color(43, 204, 204));
 		setContentPane(painel);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
@@ -57,79 +63,104 @@ public class Tela extends JFrame implements ActionListener {
 	
 	private void textField() {
 		
-		titulo = new JLabel("Cadastro");
-		titulo.setBounds(20,10,200,30);
-		titulo.setFont( new Font("Poppins", Font.BOLD, 35) );
+		titulo = new JLabel("Cadastrar Quarto");
+		
+		titulo.setBounds(210,10,1000,35);
+		
+		titulo.setFont( new Font("Poppins", Font.BOLD, 40) );
+		titulo.setForeground(Color.white);
 		painel.add(titulo);
 		
+		
+		linha = new JLabel("_________________________________________________________________________");
+		linha.setBounds(15,30,840,30);
+		linha.setFont( new Font("", Font.BOLD, 20) );
+		linha.setForeground(Color.white);
+		painel.add(linha);
+		
 		quarto = new JLabel("Quarto:");
-		quarto.setBounds(20, 100, 100, 30);
+		quarto.setBounds(350, 65, 100, 30);
+		quarto.setFont( new Font("Calibri", Font.BOLD, 19) );
+		quarto.setForeground(Color.white);
 		painel.add(quarto);
 		quartos = new JComboBox<String>(new String[] {"101", "102", "103", "104"});
-		quartos.setBounds(120, 100, 120, 30);
-		quartos.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		quartos.setBounds(420, 65, 120, 30);
+		quartos.setBorder(BorderFactory.createMatteBorder(1, 12, 1, 1, Color.WHITE));
 		painel.add(quartos);
 		
 		nomeCompleto = new JLabel("Nome Completo:");
-		nomeCompleto.setBounds(20, 60, 100, 30);
+		nomeCompleto.setBounds(40, 65, 200, 30);
+		nomeCompleto.setFont( new Font("Calibri", Font.BOLD, 19) );
+		nomeCompleto.setForeground(Color.white);
 		painel.add(nomeCompleto);
 		tfNomeCompleto = new JTextField();
-		tfNomeCompleto.setBounds(120, 60, 120, 30);
-		tfNomeCompleto.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		tfNomeCompleto.setBounds(180, 65, 120, 30);
+		tfNomeCompleto.setBorder(BorderFactory.createSoftBevelBorder(1));
 		painel.add(tfNomeCompleto);
 		
 		telefone = new JLabel("Telefone:");
-		telefone.setBounds(20, 100, 100, 30);
+		telefone.setBounds(80, 100, 100, 30);
+		telefone.setFont( new Font("Calibri", Font.BOLD, 19) );
+		telefone.setForeground(Color.white);
 		painel.add(telefone);
 		tfTelefone = new JTextField();
-		tfTelefone.setBounds(120, 100, 120, 30);
-		tfTelefone.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		tfTelefone.setBounds(180, 100, 120, 30);
+		tfTelefone.setBorder(BorderFactory.createSoftBevelBorder(1));
 		painel.add(tfTelefone);
 		
-		dataEntrada = new JLabel("Data de Entrada:");
-		dataEntrada.setBounds(20, 140, 100, 30);
+		dataEntrada = new JLabel("[Data de Entrada]");
+		dataEntrada.setBounds(80, 150, 130, 30);
+		dataEntrada.setFont( new Font("Arial", Font.BOLD, 14) );
+		dataEntrada.setForeground(Color.white);
 		painel.add(dataEntrada);
 		tfDataEntrada = new JTextField();
-		tfDataEntrada.setBounds(120, 140, 120, 30);
-		tfDataEntrada.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		tfDataEntrada.setBounds(75, 175, 130, 30);
+		tfDataEntrada.setBorder(BorderFactory.createSoftBevelBorder(1));
 		painel.add(tfDataEntrada);
 		
-		dataSaida = new JLabel("Data de Saida:");
-		dataSaida.setBounds(20, 180, 100, 30);
+		dataSaida = new JLabel("[Data de Saida]");
+		dataSaida.setBounds(250, 150, 130, 30);
+		dataSaida.setFont( new Font("Arial", Font.BOLD, 14) );
+		dataSaida.setForeground(Color.white);
 		painel.add(dataSaida);
 		tfDataSaida = new JTextField();
-		tfDataSaida.setBounds(120, 180, 120, 30);
-		tfDataSaida.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		tfDataSaida.setBounds(240, 175, 130, 30);
+		tfDataSaida.setBorder(BorderFactory.createSoftBevelBorder(1));
 		painel.add(tfDataSaida);
 		
 		vPerNoite = new JLabel("Valor Pernoite:");
-		vPerNoite.setBounds(20, 220, 100, 30);
+		vPerNoite.setBounds(320, 100, 150, 30);
+		vPerNoite.setForeground(Color.white);
+		vPerNoite.setFont( new Font("Calibri", Font.BOLD, 18) );
 		painel.add(vPerNoite);
 		tfVPerNoite = new JTextField();
-		tfVPerNoite.setBounds(120, 220, 120, 30);
-		tfVPerNoite.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		tfVPerNoite.setBounds(440, 100, 120, 30);
+		tfVPerNoite.setBorder(BorderFactory.createSoftBevelBorder(1));
 		painel.add(tfVPerNoite);
 	}
 	private void textArea() {
 		listaQuartos = new JTextArea();
-		listaQuartos.setBounds(20, 300, 495, 270);
-		listaQuartos.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		listaQuartos.setBounds(20, 270, 495, 270);
+		listaQuartos.setBorder(BorderFactory.createSoftBevelBorder(1));
 		painel.add(listaQuartos);
 		filtrar = new JComboBox<String>(new String[] {"Sem Filtro" ,"Ocupados", "Livres"});
-		filtrar.setBounds(20, 270, 495, 30);
+		filtrar.setBounds(20, 240, 495, 30);
 		quartos.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 		painel.add(filtrar);
 	}
 	private void button() {
 		adicionar = new JButton("Adicionar Reserva");
-		adicionar.setBounds(300, 20, 200, 50);
+		adicionar.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.white));
+		adicionar.setBounds(580, 160, 200, 50);
 		painel.add(adicionar);
+		
 		alterar = new JButton("Alterar Reserva");
-		alterar.setBounds(300, 90, 200, 50);
+		alterar.setBounds(580, 230, 200, 50);
 		alterar.setEnabled(false);
 		painel.add(alterar);
+		
 		excluir = new JButton("Cancelar Reserva");
-		excluir.setBounds(300, 160, 200, 50);
+		excluir.setBounds(580, 305, 200, 50);
 		excluir.setEnabled(false);
 		painel.add(excluir);
 	}

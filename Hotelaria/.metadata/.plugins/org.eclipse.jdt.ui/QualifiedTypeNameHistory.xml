@@ -3,4 +3,14 @@
     <fullyQualifiedTypeName name="javax.swing.JTextField"/>
     <fullyQualifiedTypeName name="javax.swing.JLabel"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
+    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+    <fullyQualifiedTypeName name="javax.swing.GroupLayout"/>
+    <fullyQualifiedTypeName name="javax.swing.GroupLayout.Alignment"/>
+    <fullyQualifiedTypeName name="javax.swing.GroupLayout.Group"/>
+    <fullyQualifiedTypeName name="javax.swing.GroupLayout.SequentialGroup"/>
+    <fullyQualifiedTypeName name="java.awt.Shape"/>
+    <fullyQualifiedTypeName name="java.awt.geom.RoundRectangle2D"/>
+    <fullyQualifiedTypeName name="java.awt.FlowLayout"/>
+    <fullyQualifiedTypeName name="javax.swing.BorderFactory"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>
