@@ -1,7 +1,6 @@
 package model;
 
 import java.util.Currency;
-import java.util.Date;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +10,7 @@ import java.util.Objects;
 public class OrdemServicoInterna {
 
 	// Atributos
-	private Date Data;
+	private String Data;
 	private String nomeCliente;
 	private String equipamento;
 	private String acessorio;
@@ -19,23 +18,24 @@ public class OrdemServicoInterna {
 	private String defeito;
 	private String servicoExecutado;
 	private String pecaUtilizada;
+	private String pecaUtilizada01;
+	private String pecaUtilizada02;
 	private int qtdUtilizada;
+	private int qtdUtilizada01;
+	private int qtdUtilizada02;
 	private String pecaSerialNumber;
+	private String pecaSerialNumber01;
+	private String pecaSerialNumber02;
 	private String tecnico;
 
 	private final Locale BRASIL = new Locale("pt", "BR");
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private DecimalFormat df = new DecimalFormat("#.00");
 
 	public OrdemServicoInterna(String Data, String nomeCliente, String equipamento, String acessorio,
-			String numeroSerie, String defeito, String servicoExecutado, String pecaUtilizada, int qtdUtilizada,
-			String pecaSerialNumber, String tecnico) {
-		try {
-			this.Data = sdf.parse(Data);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
+			String numeroSerie, String defeito, String servicoExecutado, String pecaUtilizada,String pecaUtilizada01,String pecaUtilizada02, int qtdUtilizada,
+			int qtdUtilizada01, int qtdUtilizada02, String pecaSerialNumber,String pecaSerialNumber01,String pecaSerialNumber02, String tecnico) {
+		
+		this.Data = Data;
 		this.nomeCliente = nomeCliente;
 		this.equipamento = equipamento;
 		this.acessorio = acessorio;
@@ -43,15 +43,21 @@ public class OrdemServicoInterna {
 		this.defeito = defeito;
 		this.servicoExecutado = servicoExecutado;
 		this.pecaUtilizada = pecaUtilizada;
+		this.pecaUtilizada01 = pecaUtilizada01;
+		this.pecaUtilizada02 = pecaUtilizada02;
 		this.qtdUtilizada = qtdUtilizada;
+		this.qtdUtilizada01 = qtdUtilizada01;
+		this.qtdUtilizada02 = qtdUtilizada01;
 		this.pecaSerialNumber = pecaSerialNumber;
+		this.pecaSerialNumber01 = pecaSerialNumber01;
+		this.pecaSerialNumber02 = pecaSerialNumber02;
 		this.tecnico = tecnico;
 	}
 
 	public OrdemServicoInterna(String linha) throws ParseException {
 		df.setCurrency(Currency.getInstance(BRASIL));
 
-		this.Data = sdf.parse(linha.split(";")[0]);
+		this.Data = linha.split(";")[0];
 		this.nomeCliente = linha.split(";")[1];
 		this.equipamento = linha.split(";")[2];
 		this.acessorio = linha.split(";")[3];
@@ -59,18 +65,40 @@ public class OrdemServicoInterna {
 		this.defeito = linha.split(";")[5];
 		this.servicoExecutado = linha.split(";")[6];
 		this.pecaUtilizada = linha.split(";")[7];
-		this.qtdUtilizada = Integer.parseInt(linha.split(";")[8]);
-		this.pecaSerialNumber = linha.split(";")[9];
-		this.tecnico = linha.split(";")[10];
+		this.pecaUtilizada01 = linha.split(";")[8];
+		this.pecaUtilizada02 = linha.split(";")[9];
+		this.qtdUtilizada = Integer.parseInt(linha.split(";")[10]);
+		this.qtdUtilizada01 = Integer.parseInt(linha.split(";")[11]);
+		this.qtdUtilizada02 = Integer.parseInt(linha.split(";")[12]);
+		this.pecaSerialNumber = linha.split(";")[13];
+		this.pecaSerialNumber01 = linha.split(";")[14];
+		this.pecaSerialNumber02 = linha.split(";")[15];
+		this.tecnico = linha.split(";")[16];
 
 	}
 
-	public Date getData() {
+	public int getQtdUtilizada01() {
+		return qtdUtilizada01;
+	}
+
+	public void setQtdUtilizada01(int qtdUtilizada01) {
+		this.qtdUtilizada01 = qtdUtilizada01;
+	}
+
+	public int getQtdUtilizada02() {
+		return qtdUtilizada02;
+	}
+
+	public void setQtdUtilizada02(int qtdUtilizada02) {
+		this.qtdUtilizada02 = qtdUtilizada02;
+	}
+
+	public String getData() {
 		return Data;
 	}
 
-	public void setData(Date data) {
-		Data = data;
+	public void setData(String data) {
+		this.Data = data;
 	}
 
 	public String getNomeCliente() {
@@ -153,14 +181,6 @@ public class OrdemServicoInterna {
 		this.tecnico = tecnico;
 	}
 
-	public SimpleDateFormat getSdf() {
-		return sdf;
-	}
-
-	public void setSdf(SimpleDateFormat sdf) {
-		this.sdf = sdf;
-	}
-
 	public DecimalFormat getDf() {
 		return df;
 	}
@@ -176,8 +196,11 @@ public class OrdemServicoInterna {
 	@Override
 	public int hashCode() {
 		return Objects.hash(BRASIL, Data, acessorio, defeito, df, equipamento, nomeCliente, numeroSerie,
-				pecaSerialNumber, pecaUtilizada, qtdUtilizada, sdf, servicoExecutado, tecnico);
+				pecaSerialNumber, pecaSerialNumber01, pecaSerialNumber02, pecaUtilizada, pecaUtilizada01,
+				pecaUtilizada02, qtdUtilizada, qtdUtilizada01, qtdUtilizada02, servicoExecutado, tecnico);
 	}
+
+	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -193,9 +216,13 @@ public class OrdemServicoInterna {
 				&& Objects.equals(df, other.df) && Objects.equals(equipamento, other.equipamento)
 				&& Objects.equals(nomeCliente, other.nomeCliente) && Objects.equals(numeroSerie, other.numeroSerie)
 				&& Objects.equals(pecaSerialNumber, other.pecaSerialNumber)
-				&& Objects.equals(pecaUtilizada, other.pecaUtilizada) && qtdUtilizada == other.qtdUtilizada
-				&& Objects.equals(sdf, other.sdf) && Objects.equals(servicoExecutado, other.servicoExecutado)
-				&& Objects.equals(tecnico, other.tecnico);
+				&& Objects.equals(pecaSerialNumber01, other.pecaSerialNumber01)
+				&& Objects.equals(pecaSerialNumber02, other.pecaSerialNumber02)
+				&& Objects.equals(pecaUtilizada, other.pecaUtilizada)
+				&& Objects.equals(pecaUtilizada01, other.pecaUtilizada01)
+				&& Objects.equals(pecaUtilizada02, other.pecaUtilizada02) && qtdUtilizada == other.qtdUtilizada
+				&& qtdUtilizada01 == other.qtdUtilizada01 && qtdUtilizada02 == other.qtdUtilizada02
+				&& Objects.equals(servicoExecutado, other.servicoExecutado) && Objects.equals(tecnico, other.tecnico);
 	}
 
 	@Override

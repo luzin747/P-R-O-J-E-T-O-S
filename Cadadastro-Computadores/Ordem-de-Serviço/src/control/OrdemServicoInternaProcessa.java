@@ -6,15 +6,15 @@ import model.OrdemServicoInterna;
 
 public class OrdemServicoInternaProcessa {
 
-	public static ArrayList<OrdemServicoInterna> manutencoes = new ArrayList<>();
-	private static OrdemServicoInternaDAO md = new OrdemServicoInternaDAO();
+	public static ArrayList<OrdemServicoInterna> os = new ArrayList<>();
+	private static OrdemServicoInternaDAO osd = new OrdemServicoInternaDAO();
 
 	public static void carregar() {
-		manutencoes = md.ler();
+		os = osd.ler();
 	}
 	
 	public static void salvar() {
-		md.escrever(manutencoes);
+		osd.escrever(os);
 	}
 
 }

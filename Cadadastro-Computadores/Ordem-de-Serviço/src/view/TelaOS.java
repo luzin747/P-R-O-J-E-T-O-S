@@ -27,9 +27,9 @@ public class TelaOS extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel painel;
-	private JLabel title, linha, lbData, lbNomeCliente, lbEquipamento, lbAcessorio, lbNumeroSerie, lbDefeito, lbServicoExecutado,lbPecaUtilizada,lbQTDUtilizada,lbPecaSerialNumber,lbTecnico;
-	private JTextField tfData, tfNomeCliente,tfAcessorio, tfNumeroSerie, tfDefeito, tfServicoExecutado,tfPecaUtilizada,tfQTDUtilizada,tfPecaSerialNumber,tfTecnico;
-	private JComboBox<String> cbEquipamento;
+	private JLabel title, linha, lbData, lbNomeCliente, lbEquipamento, lbAcessorio, lbNumeroSerie, lbDefeito, lbServicoExecutado,lbTecnico;
+	private JTextField tfData, tfNomeCliente,tfAcessorio, tfNumeroSerie, tfDefeito, tfServicoExecutado,tfPecaUtilizada,tfpecaUtilizada01,tfpecaUtilizada02,tfqtdUtilizada,tfqtdUtilizada01,tfqtdUtilizada02,tfPecaSerialNumber,tfpecaSerialNumber01,tfpecaSerialNumber02;
+	private JComboBox<String> cbEquipamento, cbTecnico;
 	private JButton create, read, update, delete;
 	private JScrollPane scroll;
 	private JTable table;
@@ -110,6 +110,33 @@ public class TelaOS extends JFrame implements ActionListener {
 		linha.setFont(new Font("", Font.BOLD, 20));
 		painel.add(linha);
 		
+		title = new JLabel("Peças");
+		title.setBounds(120, 400, 1000, 40);
+		title.setFont(new Font("Calibri", Font.BOLD, 27));
+		painel.add(title);
+		
+		title = new JLabel("QTD");
+		title.setBounds(390, 400, 1000, 40);
+		title.setFont(new Font("Calibri", Font.BOLD, 27));
+		painel.add(title);
+		
+		title = new JLabel("Número de Série");
+		title.setBounds(590, 400, 1000, 40);
+		title.setFont(new Font("Calibri", Font.BOLD, 27));
+		painel.add(title);
+		
+		lbTecnico = new JLabel("Técnico:");
+		lbTecnico.setBounds(643, 522, 270, 160);
+		lbTecnico.setFont(new Font("Calibri", Font.BOLD, 22));
+		painel.add(lbTecnico);
+		
+		linha = new JLabel("______________________________");
+		linha.setBounds(630, 600, 870, 30);
+		linha.setFont(new Font("", Font.BOLD, 15));
+		painel.add(linha);
+		
+		
+		
 		
 		
 		// Text Field
@@ -142,15 +169,152 @@ public class TelaOS extends JFrame implements ActionListener {
 		tfServicoExecutado = new JTextField();
 		tfServicoExecutado.setBounds(250, 300, 500, 35);
 		painel.add(tfServicoExecutado);
+		
+		//PEÇA UTILIZADA
+		tfPecaUtilizada = new JTextField();
+		tfPecaUtilizada.setBounds(30, 440, 240, 30);
+		painel.add(tfPecaUtilizada);
+		
+		tfpecaUtilizada01 = new JTextField();
+		tfpecaUtilizada01.setBounds(30, 480, 240, 30);
+		painel.add(tfpecaUtilizada01);
+		
+		tfpecaUtilizada02 = new JTextField();
+		tfpecaUtilizada02.setBounds(30, 520, 240, 30);
+		painel.add(tfpecaUtilizada02);
+		
+		//QUANTIDADE  UTILIZADA
+		tfqtdUtilizada = new JTextField();
+		tfqtdUtilizada.setBounds(350, 440, 120, 30);
+		painel.add(tfqtdUtilizada);
+		
+		tfqtdUtilizada01 = new JTextField();
+		tfqtdUtilizada01.setBounds(350, 480, 120, 30);
+		painel.add(tfqtdUtilizada01);
+		
+		tfqtdUtilizada02 = new JTextField();
+		tfqtdUtilizada02.setBounds(350, 520, 120, 30);
+		painel.add(tfqtdUtilizada02);
+		
+		//PEÇA SERIAL NUMBER
+		tfPecaSerialNumber = new JTextField();
+		tfPecaSerialNumber.setBounds(550, 440, 270, 30);
+		painel.add(tfPecaSerialNumber);
+		
+		tfpecaSerialNumber01 = new JTextField();
+		tfpecaSerialNumber01.setBounds(550, 480, 270, 30);
+		painel.add(tfpecaSerialNumber01);
+		
+		tfpecaSerialNumber02 = new JTextField();
+		tfpecaSerialNumber02.setBounds(550, 520, 270, 30);
+		painel.add(tfpecaSerialNumber02);
+		
+		
+		cbTecnico = new JComboBox<String>(
+				new String[] { "Luiz Fernando", "Paulo Carvalho", "Fausto Fabiano"});
+		cbTecnico.setBounds(730, 580, 135, 35);
+		painel.add(cbTecnico);
+		
+		create = new JButton("Cadastrar");
+		read = new JButton("Consultar");
+		update = new JButton("Alterar");
+		delete = new JButton("Excluir");
+		
+		create.setBounds(40, 580, 120, 32);
+		read.setBounds(180, 580, 120, 32);
+		update.setBounds(320, 580, 120, 32);
+		delete.setBounds(460, 580, 120, 32);
+		
+		painel.add(create);
+		painel.add(read);
+		painel.add(update);
+		painel.add(delete);
+		
+		tableModel = new DefaultTableModel();
+		tableModel.addColumn("Data");
+		tableModel.addColumn("Nome Cliente");
+		tableModel.addColumn("Equipamento");
+		tableModel.addColumn("Técnico Responsável");
+		
+		if (OrdemServicoInternaProcessa.os.size() != 0) {
+			preencheTabela();
+		}
+		table = new JTable(tableModel);
+		table.setEnabled(false);
+		scroll = new JScrollPane(table);
+		scroll.setBounds(40, 665, 605, 215);
+		painel.add(scroll);
+
+		create.addActionListener(this);
+		read.addActionListener(this);
+		update.addActionListener(this);
+		delete.addActionListener(this);
+
+		update.setEnabled(false);
+		delete.setEnabled(false);
 	}
 	
+
+
+
+	private void preencheTabela() {
+		int totLinhas = tableModel.getRowCount();
+		if (tableModel.getRowCount() > 0) {
+			for (int i = 0; i < totLinhas; i++) {
+				tableModel.removeRow(0);
+			}
+		}
+		for (OrdemServicoInterna osi : OrdemServicoInternaProcessa.os) {
+			tableModel.addRow(new String[] { String.format(osi.getData()), osi.getNomeCliente(), osi.getEquipamento(), osi.getTecnico()});
+		}
+		
+	}
+	
+	private void limparCampos() {
+		
+		tfData.setText("");
+		tfNomeCliente.setText("");
+		tfAcessorio.setText("");
+		tfNumeroSerie.setText("");
+		tfNumeroSerie.setText("");
+		tfServicoExecutado.setText("");
+		tfPecaUtilizada.setText("");
+		tfpecaUtilizada01.setText("");
+		tfpecaUtilizada02.setText("");
+		tfqtdUtilizada.setText("");
+		tfqtdUtilizada01.setText("");
+		tfqtdUtilizada02.setText("");
+		tfPecaSerialNumber.setText("");
+		tfpecaSerialNumber01.setText("");
+		tfpecaSerialNumber02.setText("");
+		
+	}
+	
+	private void create() {
+
+		// o IF esta vendo se tem algum campo não preenchido
+		if (tfData.getText().length() != 0 && tfNomeCliente.getText().length() != 0) {
+
+			OrdemServicoInternaProcessa.os.add(new OrdemServicoInterna(tfData.getText(),tfNomeCliente.getText(),
+					cbEquipamento.getSelectedItem().toString(),tfAcessorio.getText(), tfNumeroSerie.getText(),tfDefeito.getText(),tfServicoExecutado.getText(),tfPecaUtilizada.getText(),tfpecaUtilizada01.getText(),tfpecaUtilizada02.getText(), Integer.parseInt(tfqtdUtilizada.getText()),
+					Integer.parseInt(tfqtdUtilizada01.getText()),Integer.parseInt(tfqtdUtilizada02.getText()),tfPecaSerialNumber.getText(),tfpecaSerialNumber01.getText(),tfpecaSerialNumber02.getText(),cbTecnico.getSelectedItem().toString()));
+
+			preencheTabela();
+			limparCampos();
+			OrdemServicoInternaProcessa.salvar();
+
+		} else {
+			JOptionPane.showMessageDialog(this, "Favor preencher todos os campos.");
+		}
+	}
+
 
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == create) {
-			//create();
+			create();
 		}
 		if (e.getSource() == read) {
 			//read();
