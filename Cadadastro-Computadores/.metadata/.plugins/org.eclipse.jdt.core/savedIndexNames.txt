@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+D:\Luiz1DES\Projetos\Projetinho\Cadadastro-Computadores\.metadata\.plugins\org.eclipse.jdt.core
+3900526464.index
+3305866966.index
+1865797976.index

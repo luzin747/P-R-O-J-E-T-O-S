@@ -1,0 +1,70 @@
+package model;
+
+import java.util.Currency;
+import java.util.Date;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
+public class OrdemServicoInterna {
+
+	
+	// Atributos
+	private Date Data;
+	private String nomeCliente;
+	
+	private String equipamento;
+	private String acessorio;
+	private String numeroSerie;
+	private String defeito;
+	private String servicoExecutado;
+	
+	private String pecaUtilizada;
+	private int qtdUtilizada;
+	private String pecaSerialNumber;
+	
+	private String tecnico;
+	
+	
+	private final Locale BRASIL = new Locale("pt", "BR");
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private DecimalFormat df = new DecimalFormat("#.00");
+	
+	public OrdemServicoInterna(String Data, String nomeCliente, String equipamento,String acessorio,String numeroSerie,String defeito,String servicoExecutado,String pecaUtilizada,int qtdUtilizada, String pecaSerialNumber, String tecnico) {
+		try {
+			this.Data = sdf.parse(Data);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		this.nomeCliente = nomeCliente;
+		this.equipamento = equipamento;
+		this.acessorio = acessorio;
+		this.numeroSerie = numeroSerie;
+		this.defeito = defeito;
+		this.servicoExecutado = servicoExecutado;
+		this.pecaUtilizada = pecaUtilizada;
+		this.qtdUtilizada = qtdUtilizada;
+		this.pecaSerialNumber = pecaSerialNumber;
+		this.tecnico = tecnico;
+	}
+	
+	public OrdemServicoInterna(String linha ) throws ParseException {
+		df.setCurrency(Currency.getInstance(BRASIL));
+		
+		this.Data = sdf.parse(linha.split(";")[0]);
+		this.nomeCliente = linha.split(";")[1];
+		this.equipamento = linha.split(";")[2];
+		this.acessorio = linha.split(";")[3];
+		this.numeroSerie = linha.split(";")[4];
+		this.defeito = linha.split(";")[5];
+		this.servicoExecutado = linha.split(";")[6];
+		this.pecaUtilizada = linha.split(";")[7];
+		this.qtdUtilizada = Integer.parseInt(linha.split(";")[7]);
+		this.pecaSerialNumber = linha.split(";")[8];
+		
+		
+		
+	}
+}
