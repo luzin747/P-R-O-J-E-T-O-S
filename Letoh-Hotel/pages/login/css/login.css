@@ -11,8 +11,7 @@ body {
     background-image: url(../img/anner.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: rgb(43, 204, 204);
-
+    background-color: rgb(43, 153, 204);
 
 
     width: 100%;
@@ -140,7 +139,30 @@ button:focus {
 }
 
 .media i {
-    padding-left: 20px;
+    margin-top: 40px;
+    margin-bottom: -220px;
+    font-size: 15pt;
+
+}
+.media a {
+    margin-left: 15px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.425);
+    border-radius: 60px;
+    color: black;
+    padding: 10px;
+}
+
+.media a:hover {
+    transition: 0.2s;
+    color: white;
+    background-color: rgb(14, 13, 13);
+}
+.caption-media{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: -20px;
+    font-size: 12pt;
 }
 
     
