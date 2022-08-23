@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+
+    <!-- Link Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+
     <!-- Link Css -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -14,7 +18,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body>
+<body onload="carregar()">
 
 
     <header>
@@ -24,25 +28,132 @@
 
             <div class="buscar-btn">
                 <input id="inpBusca" type="search" placeholder="Faça sua Busca">
-                <button class="button-buscar"><i class='bx bx-search-alt-2'></i></button>
+                <!-- <button class="button-buscar"><i class='bx bx-search-alt-2'></i></button> -->
             </div>
 
+            <div class="logar">
+                <p><a href="">Sua Conta</a></p>
+            </div>
             <div class="curtir-carrinho">
                 <i class='bx bx-heart'></i>
                 <i class='bx bxs-shopping-bag-alt'></i>
             </div>
 
-            
-            <div class="logar">
-                <p><a href="">Sua Conta</a></p>
-            </div>
-            
+
+
+        </div>
+
+        <div id="header-02">
+            <nav>
+                <ul>
+                    <div>
+                        <li><a href="">Produtos<i class='bx bx-list-ul'></a></i></li>
+                    </div>
+
+                    <li><a href="">Moda Masculina<i class='bx bx-male'></i></a></li>
+
+                    <li><a href="">Moda Feminina<i class='bx bx-female'></i></a></li>
+                    <li><a href="">Rastreio<i class='bx bxs-truck bx-tada'></i></a></li>
+                </ul>
+            </nav>
         </div>
     </header>
+
+    <main>
+
+        <!-- Sessão Carroussel -->
+        <section>
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner carroussel">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="https://th.bing.com/th/id/R.3d988d5bd25b2b9bb3f8007dc5784c9d?rik=TqDCN7QntSsLsQ&pid=ImgRaw&r=0"
+                            alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="https://static.vecteezy.com/system/resources/previews/000/669/988/large_2x/vector-shopping-online-banner.jpg"
+                            alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://static.vecteezy.com/system/resources/previews/000/670/565/large_2x/online-shopping-banner-layout-vector.jpg"
+                            alt="...">
+                    </div>
+                </div>
+                <button id="button-carrousel" class="carousel-control-prev" type="button"
+                    data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Produtos Em Destaques -->
+
+        <section>
+            <div class="cont-card-destaque ">
+                <div class="model" id="card">
+                    <div id="card" class="card-destaque">
+
+                        <img id="imagem"
+                            src="https://cdn.shopify.com/s/files/1/0555/2426/1935/products/H69412fed28364f0fa0095578212e120eU-removebg-preview_480x480_crop_center.png?v=1646737618"
+                            alt="">
+
+                        <div class="caption">
+                            <p id="titulo">Relógios de Luxo</p>
+                            <hr>
+                            <hr style="width: 60px; margin: -10px auto;">
+                            <button>Conferir > > > </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="cont-prodDest">
+                <div class="title-prodDest">
+                    <h3><i class='bx bxs-hot bx-tada'></i>Destaques<i class='bx bxs-hot bx-tada'></i></h3>
+                </div>
+
+                <div class="card-cont">
+                    <img src="https://ae01.alicdn.com/kf/H77cdd4f1b4d44afcb3b07b975066f3bdy/2022-moda-masculina-minimalista-ultra-fino-rel-gios-simples-neg-cios-a-o-inoxid-vel-malha.jpg_Q90.jpg_.webp"
+                        alt="">
+                    <p class="title">Relogio Bunito</p>
+                    <hr>
+
+                    <div>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                    </div>
+
+                    <div class="price">
+                        <p>349,00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </main>
 
 
 </body>
 
+<script src="js/script.js"></script>
+
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

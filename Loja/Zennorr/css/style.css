@@ -8,42 +8,84 @@
 
 #header-01 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 1.6rem;
+    padding: 1rem;
+    color: black;
 }
 
-header {
-    background-color: rgba(0, 0, 0, 0.822);
+#header-02 {
+    background-color: #171A23;
+
+    color: white;
+}
+
+#header-02 ul {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 45px;
+    justify-content: space-evenly;
+}
+
+#header-02 ul li {
+    list-style: none;
+    
+    font-size: 12pt;
+
     
 }
+#header-02 ul div i {
+    font-size: 15pt;
+}
+
+#header-02 ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+#header-02 ul li a i {
+    font-size: 15pt;
+    align-items: center;
+    padding-left: 1px;
+
+}
+
+#header-02 ul li a:hover {
+    color: rgb(151, 18, 18);
+
+}
+
 
 h1 {
     font-style: italic;
-    color: white;
     font-size: 35pt;
     font-weight: 300;
 }
 
 h1 b {
+    font-size: 38pt;
+    font-weight: 400;
+
 }
 
 .buscar-btn {
     display: flex;
-    width: 25%;
-    height: 4vh;
+    width: 30%;
+    height: 20px;
 
 }
 
 #inpBusca {
-    width: 90%;    
-    height: 100%;
+    width: 100%;    
+    height: 35px;
     padding-left: 10px;
     margin-top: -0px;
     border: none;
     background-color: rgb(240, 240, 240);
     border-radius: 5px;
-    color: white;
+    color: black;
     font-size: 11pt;
 }
 
@@ -56,23 +98,147 @@ h1 b {
     background-color: rgb(0, 0, 0);
     border-radius: 1px;
     border: none;
-    color: rgb(253, 253, 253);
+    color: black;
     font-weight: 1770;
 }
 
 .curtir-carrinho i {
     font-size: 20pt;
     padding-left: 25px;
-    color: rgba(255, 255, 255, 0.945);
+    margin-top: 16pt;
+    color: #684a2c;
+
+
 }
 
 .logar  {
-    border: 1px solid white;
     text-align: center;
-    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+    
 }
 
 .logar a {
-    color: white;
+    border: 1px solid black;
+    padding: 5px 10px;
+    color: #684a2c;
     text-decoration: none;
+    
+}
+
+.carousel {
+}
+
+.carroussel img {
+    width: 100%;
+    height: 60vh;
+    /* margin-left: 5%; */
+    object-fit: cover;
+}
+
+button span{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: black;
+    padding: 10px;
+}
+
+main {
+    
+}
+
+.model {
+    display: none;
+    visibility: none;
+}
+.cont-card-destaque {
+    margin-top: 80px;
+    display: flex;
+    
+}
+.card-destaque {
+    width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.904);
+    color: rgb(255, 255, 255);
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.774);
+    
+}
+
+.caption hr {
+    margin-top: -10px;
+}
+
+.card-destaque img {
+    width: 50%;
+    height: 25vh;
+    object-fit: contain;
+    border-radius: 0px;
+    transition: 0.2s;
+
+}
+
+.card-destaque:hover img {
+    transition: 0.2s;
+    width: 53%;
+
+}
+
+.card-destaque button {
+    margin-top: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.384);
+    font-size: 10pt;
+    color: white;
+    padding: 5px 10px;
+    background-color: rgba(127, 255, 212, 0);    
+    
+}
+
+.caption {
+}
+/* CARDS */
+.cont-prodDest {
+    padding-top: 3%;
+    width: 90vw;
+    margin: auto;
+}
+
+
+.cont-prodDest h3 i {
+    color: #FF0000;
+}
+
+.title-prodDest {
+    background-color: rgba(255, 255, 255, 0.527);
+    
+}
+
+.cont-prodDest h3 {
+    text-align: center;
+    font-weight: 300;
+    color: black;
+
+    font-size: 22pt;
+}
+.card-cont {
+    width: 220px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.card-cont img {
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+.title {
+    text-align: center;
 }
