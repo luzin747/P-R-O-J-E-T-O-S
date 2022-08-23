@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,500;1,600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins'
+}
+
+#header-01 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.6rem;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.822);
+    
+}
+
+h1 {
+    font-style: italic;
+    color: white;
+    font-size: 35pt;
+    font-weight: 300;
+}
+
+h1 b {
+}
+
+.buscar-btn {
+    display: flex;
+    width: 25%;
+    height: 4vh;
+
+}
+
+#inpBusca {
+    width: 90%;    
+    height: 100%;
+    padding-left: 10px;
+    margin-top: -0px;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    color: white;
+    font-size: 11pt;
+}
+
+.button-buscar {
+    height: 100%;
+    margin-left: -5px;
+    width: 8%;
+    font-size: 25px;
+    padding: 0;
+    background-color: rgb(0, 0, 0);
+    border-radius: 1px;
+    border: none;
+    color: rgb(253, 253, 253);
+    font-weight: 1770;
+}
+
+.curtir-carrinho i {
+    font-size: 20pt;
+    padding-left: 25px;
+    color: rgba(255, 255, 255, 0.945);
+}
+
+.logar  {
+    border: 1px solid white;
+    text-align: center;
+    padding: 8px 12px;
+}
+
+.logar a {
+    color: white;
+    text-decoration: none;
+}

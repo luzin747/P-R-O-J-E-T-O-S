@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+h2 {
+    text-align: center;
+    color: rgb(36, 30, 30);
+}
+
+hr {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 3%;
+
+}
+
+#container {
+    width: 800px;
+    margin: 2% auto;
+}
+.cont-cadastro-tabela {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 10%;
+    
+    
+}
+
+#cadastro {
+    width: 45vw;
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.637);
+}
+
+
+
+#info {
+    display: flex;
+    justify-content: center;
+}
+
+#info p {
+    padding: 0px 10px 0px 10px;
+    
+}
+
+#version {
+    font-size: 9pt;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.637);
+    margin-top: 2%;
+}
+
+/* Inputs  */
+input,
+select {
+    border-radius: 10px;
+}
+
+#inpQTD {
+    width: 15%;
+    padding-left: 5px;
+    border: 1px solid black;
+}
+
+/* FIM Dos Inputs */
+
+.div-toners {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.div-toners p {
+    margin-left: 10px;
+    padding-right: 10px;
+}
+
+
+.div-data {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.div-data button {
+    display: flex;
+    margin: 0 auto;
+    padding: 5px 20px;
+    font-size: 9pt;
+    border: 1px solid;
+    border-radius: 25px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+
+    cursor: pointer;
+}
+
+.div-data button:hover {
+    background-color: rgba(0, 0, 0, 0.637);
+
+}
+
+.p-inp {
+    display: flex;
+    width: 30%;
+    
+
+}
+
+.div-data p {
+    padding-right: 5px;
+
+}
+
+.div-data input {
+    border: 1px solid black;
+    width: 10vw;
+
+}
+
+
+/* Tabela CSS */
+
+h3 {
+    font-size: 16pt;
+    text-align: center;
+}
+
+#cont-tabela {
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.637);
+    width: 45vw;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 4%;
+   
+
+}
+#cont-tabela table {
+    display: flex;
+    justify-content: center;
+}
+#cont-tabela table tr th {
+    width: 100vw;
+    font-weight: 400;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.rows  {
+    text-align: center;
+}
+.rows td {
+    border: 1px solid black
+
+}
