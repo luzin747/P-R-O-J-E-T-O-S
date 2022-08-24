@@ -155,10 +155,11 @@ main {
 .cont-card-destaque {
     margin-top: 80px;
     display: flex;
+    justify-content: center;
     
 }
 .card-destaque {
-    width: 320px;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -225,12 +226,14 @@ main {
     font-weight: 300;
     color: black;
 
+
     font-size: 22pt;
 }
 .card-cont {
-    width: 220px;
+    width: 300px;
     border-radius: 5px;
-    background-color: white;
+    background-color: rgb(245, 245, 245);
+    padding: 5px;
 }
 
 .card-cont img {
@@ -238,7 +241,22 @@ main {
     border-radius: 10px;
 
 }
+.stars{
+    color: rgb(223, 223, 82);
+    
+}
 
 .title {
     text-align: center;
+    font-size: 14pt;
+}
+
+.card-cont button {
+    display: flex;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #171A23;
+    color: white;
 }
