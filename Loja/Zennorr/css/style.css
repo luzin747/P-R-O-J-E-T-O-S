@@ -159,7 +159,7 @@ main {
     
 }
 .card-destaque {
-    width: 20%;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -204,7 +204,7 @@ main {
 
 .caption {
 }
-/* CARDS */
+/* ---------------- CARDS --------------- */
 .cont-prodDest {
     padding-top: 3%;
     width: 90vw;
@@ -230,7 +230,7 @@ main {
     font-size: 22pt;
 }
 .card-cont {
-    width: 300px;
+    width: 20%;
     border-radius: 5px;
     background-color: rgb(245, 245, 245);
     padding: 5px;
@@ -251,12 +251,19 @@ main {
     font-size: 14pt;
 }
 
+.overlay {
+    
+}
 .card-cont button {
-    display: flex;
-    margin: 0 auto;
+    
     border-radius: 10px;
     padding: 5px 10px;
     border: none;
     background-color: #171A23;
     color: white;
+}
+
+.card-cont button:hover {
+    background-color: #171A23;
+
 }
